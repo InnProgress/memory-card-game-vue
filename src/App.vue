@@ -14,7 +14,7 @@
     </form>
 
     <transition name="fade">
-      <modal v-if="$store.state.modal" @closed="$store.commit('hideModal');$store.commit('resetValues');" :title="$store.state.modal.title" :message="$store.state.modal.message" />
+      <modal v-if="$store.state.modal" @closed="$store.commit('hideModal'); $store.commit('resetValues');" :title="$store.state.modal.title" :message="$store.state.modal.message" />
     </transition>
   
   </div>
@@ -43,13 +43,11 @@ export default {
   },
   methods: {
     startGame() {
-      if(this.pairs < 1) {
-        alert("No way");
-        return;
-      }
-      if(this.pairs >= 500) if(!confirm("Are you sure?")) return;
-      else if(this.pairs >= 200) {
-        alert("no way");
+      if(this.pairs < 1 || this.pairs >= 200) {
+        this.$store.commit('setModal', {
+          title: "Wait... That's illegal",
+          message: "You can't set that amount of card pairs"          
+        });
         return;
       }
       this.$store.dispatch('startGame', parseInt(this.pairs));
