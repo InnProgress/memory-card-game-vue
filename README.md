@@ -9,14 +9,14 @@
 - Nice gameplay ?? Probably not 🙂
 
 ## Project development
-- Used vuex store
+- Vuex store
 - 4 components:
   - CardsTable
   - Card
   - Timer
   - Modal
 - Random code from stackoverflow
-- Ok, I'm just joking but probably shouldn't
+- Ok, I'm just joking
 
 ## Screenshots
 ```
